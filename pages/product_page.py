@@ -21,3 +21,11 @@ class ProductPage(BasePage):
         title_from_alert = self.browser.find_element(*ProductPageLocators.ADDED_ITEM_NAME_FROM_ALERT).text
         assert title_from_alert == correct_title, \
             'name from alert {} is not equals to correct title {}'.format(title_from_alert, correct_title)
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADDED_ITEM_NAME_FROM_ALERT),\
+            'Success message is presented, but should not be'
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.ADDED_ITEM_NAME_FROM_ALERT),\
+            'Success message is presented and is not disappeared'
