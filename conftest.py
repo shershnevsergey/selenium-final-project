@@ -12,6 +12,7 @@ def browser(request):
     selected_language = request.config.getoption('language')
 
     options = Options()
+    # options.add_argument("--headless")
     options.add_experimental_option('prefs', {'intl.accept_languages': selected_language})
 
     print("\nstart chrome browser with {} language for test..".format(selected_language))
